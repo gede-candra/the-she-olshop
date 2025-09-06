@@ -1,0 +1,33 @@
+// Card Slider (Own Carousel)
+$(document).ready(function(){
+   $('.owl-carousel').owlCarousel({
+      autoplay:true,
+      autoplayTimeout:6000,
+      autoplayHoverPause:false,
+      loop:true,
+      margin: 0,
+      responsiveClass:true,
+      responsive:{
+          0:{
+              items:1,
+              nav:false
+          },
+          300:{
+              items:2,
+              nav:false
+          },
+          576:{
+              items:3,
+              nav:false
+          },
+          768:{
+              items:4,
+              nav:false,
+          },
+          992:{
+              items:6,
+              nav:false,
+          }
+      }
+   })
+ });

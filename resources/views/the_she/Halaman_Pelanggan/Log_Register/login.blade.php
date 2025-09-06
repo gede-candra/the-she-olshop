@@ -1,5 +1,7 @@
 @extends('the_she/Halaman_Pelanggan/layouts/main')
 
+@section('title', 'Login')
+
 @section('halaman_depan')
 <div class="row mb-5">
 	 <div class="col-lg-6 m-auto shadow p-4">

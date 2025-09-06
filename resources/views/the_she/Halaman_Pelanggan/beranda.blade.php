@@ -1,5 +1,7 @@
 @extends('the_she/Halaman_Pelanggan/layouts/main')
 
+@section('title', 'Temukan Cinta dalam Setiap Koleksi')
+
 @section('halaman_depan')
 {{-- Carousel / Slider --}}
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
