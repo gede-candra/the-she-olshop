@@ -7,7 +7,7 @@ use App\Models\User;
 class UserRepositoryImplement implements UserRepository
 {
    private $userModel;
-   
+
    /**
     * __construct
     *
@@ -18,7 +18,7 @@ class UserRepositoryImplement implements UserRepository
    {
       $this->userModel = $userModel;
    }
-   
+
    /**
     * get user data by id
     *
@@ -29,7 +29,7 @@ class UserRepositoryImplement implements UserRepository
    {
       return $this->userModel->findOrFail($id);
    }
-   
+
    /**
     * get all user data
     *
@@ -39,7 +39,7 @@ class UserRepositoryImplement implements UserRepository
    {
       return $this->userModel->all();
    }
-   
+
    /**
     * Get all user by where condition
     *
@@ -50,5 +50,28 @@ class UserRepositoryImplement implements UserRepository
       return $this->userModel->all()->where($where, $value);
    }
 
+   /**
+    * Create new user
+    *
+    * @param  mixed $data
+    * @return void
+    */
+   public function create($data)
+   {
+      return $this->userModel->create($data);
+   }
+
+   /**
+    * Find user by username or email
+    *
+    * @param  mixed $usernameOrEmail
+    * @return object
+    */
+   public function findByUsernameOrEmail($usernameOrEmail)
+   {
+      return $this->userModel
+         ->where('username', $usernameOrEmail)
+         ->orWhere('email', $usernameOrEmail)
+         ->first();
+   }
 }
-?>

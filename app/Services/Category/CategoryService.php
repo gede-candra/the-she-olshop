@@ -5,11 +5,11 @@ namespace App\Services\Category;
 interface CategoryService
 {   
    /**
-    * Get All Category Products
+    * Get Random Category Products
     *
-    * @return void
+    * @return object
     */
-   public function getAllCategory();
+   public function getRandomProductCategories();
    
    /**
     * Get Category By Slug

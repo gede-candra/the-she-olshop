@@ -5,9 +5,9 @@ namespace App\Repositories\Category;
 interface CategoryRepository
 {
    /**
-    * Get All Category Products
+    * Get Random Category Products
     */
-   public function getAllCategory();
+   public function getRandomProductCategories();
 
    /**
     * Get Category By Slug

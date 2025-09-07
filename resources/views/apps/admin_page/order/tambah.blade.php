@@ -1,4 +1,4 @@
-@extends('the_she.Halaman_Admin.layouts.main-admin')
+@extends('apps.layouts.main')
 
 @section('konten') 
 <div class="row">

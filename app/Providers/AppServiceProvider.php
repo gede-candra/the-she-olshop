@@ -10,6 +10,8 @@ use App\Repositories\Product\ProductRepository;
 use App\Repositories\Product\ProductRepositoryImplement;
 use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryImplement;
+use App\Services\Auth\AuthService;
+use App\Services\Auth\AuthServiceImplement;
 use App\Services\Category\CategoryService;
 use App\Services\Category\CategoryServiceImplement;
 use App\Services\Order\OrderService;
@@ -30,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Auth
+        $this->app->bind(AuthService::class, AuthServiceImplement::class);
         // User
         $this->app->bind(UserRepository::class, UserRepositoryImplement::class);
         $this->app->bind(UserService::class, UserServiceImplement::class);

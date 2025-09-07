@@ -34,7 +34,7 @@ class ProductController extends Controller
             "products" => $this->productService->getAllProduct(),
         ];
 
-        return view("the_she.admin_page.products.index", $data);
+        return view("apps.admin_page.products.index", $data);
     }
 
     /**
@@ -47,10 +47,9 @@ class ProductController extends Controller
         $data = [
             "title"         => "Tambah Data Produk",
             "btn_text"      => "Tambah",
-            "categories"    => $this->categoryService->getAllCategory(),
         ];
         
-        return view("the_she.admin_page.products.product-input-form", $data);
+        return view("apps.admin_page.products.product-input-form", $data);
     }
 
     /**
@@ -90,7 +89,7 @@ class ProductController extends Controller
             "product"       => $this->productService->getProductBySlug($slug),
         ];
         
-        return view("the_she.admin_page.products.product-input-form", $data);
+        return view("apps.admin_page.products.product-input-form", $data);
     }
 
     /**

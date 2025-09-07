@@ -27,5 +27,20 @@ interface UserRepository
     * @return void
     */
    public function getAllUserWhere($where, $value);
+
+   /**
+    * Create new user
+    *
+    * @param  mixed $data
+    * @return void
+    */
+   public function create($data);
+
+   /**
+    * Find user by username or email
+    *
+    * @param  mixed $usernameOrEmail
+    * @return object
+    */
+   public function findByUsernameOrEmail($usernameOrEmail);
 }
-?>

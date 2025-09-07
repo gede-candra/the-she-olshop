@@ -2,31 +2,52 @@
 namespace App\Services\Category;
 
 use App\Repositories\Category\CategoryRepository;
+use Log;
 
 class CategoryServiceImplement implements CategoryService
 {
    private $categoryRepository;
-   
+
    /**
     * __construct
     *
     * @param  mixed $categoryRepository
     * @return void
     */
-   public function __construct(CategoryRepository $categoryRepository) {
+   public function __construct(CategoryRepository $categoryRepository)
+   {
       $this->categoryRepository = $categoryRepository;
    }
-   
+
    /**
-    * Get All Category Products
+    * Get Random Category Products
     *
-    * @return void
+    * @return object
     */
-   public function getAllCategory()
+   public function getRandomProductCategories()
    {
-      return $this->categoryRepository->getAllCategory();
+      try {
+         $categories = $this->categoryRepository->getRandomProductCategories();
+
+         return [
+            'success' => true,
+            'code'    => 200,
+            'message' => 'Berhasil mengambil kategori produk acak',
+            'data'    => $categories,
+         ];
+      }
+      catch (\Exception $e) {
+         Log::error('Error fetching random product categories: ' . $e->getMessage());
+         
+         return [
+            'success' => false,
+            'code'    => 500,
+            'message' => 'Gagal mengambil kategori produk acak',
+            'data'    => null,
+         ];
+      }
    }
-   
+
    /**
     * Get Category By Slug
     *
@@ -38,4 +59,3 @@ class CategoryServiceImplement implements CategoryService
       return $this->categoryRepository->getCategoryBySlug($slug);
    }
 }
-?>

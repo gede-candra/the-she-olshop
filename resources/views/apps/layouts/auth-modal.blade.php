@@ -13,12 +13,12 @@
 				{{-- Login Form --}}
 				<form action="" id="form-login" class="d-none">
 					<div class="form-floating mb-3">
-						<input type="email" class="form-control" id="email" name="email" placeholder="Masukkan username atau email...">
-						<label for="email">Username / Email <span class="text-danger">*</span></label>
+						<input type="text" class="form-control" id="username-email" name="username_email" placeholder="Masukkan username atau email...">
+						<label for="username-email">Username / Email <span class="text-danger">*</span></label>
 					</div>
 					<div class="form-floating mb-3">
-						<input type="password" class="form-control" id="pass" name="pass" placeholder="Masukkan password...">
-						<label for="pass">Password <span class="text-danger">*</span></label>
+						<input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password...">
+						<label for="password">Password <span class="text-danger">*</span></label>
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
@@ -47,16 +47,16 @@
 						<label for="username">Username <span class="text-danger">*</span></label>
 					</div>
 					<div class="form-floating mb-3">
-						<input type="email" class="form-control" id="e-mail" name="e-mail" placeholder="Masukkan alamat email...">
-						<label for="e-mail" name="e-mail">Alamat Email <span class="text-danger">*</span></label>
+						<input type="email" class="form-control" id="email" name="email" placeholder="Masukkan alamat email...">
+						<label for="email" name="email">Alamat Email <span class="text-danger">*</span></label>
 					</div>
 					<div class="form-floating mb-3">
-						<input type="password" class="form-control" id="pass" name="pass"placeholder="Masukkan password...">
-						<label for="pass">Password <span class="text-danger">*</span></label>
+						<input type="password" class="form-control" id="password" name="password"placeholder="Masukkan password...">
+						<label for="password">Password <span class="text-danger">*</span></label>
 					</div>
 					<div class="form-floating">
-						<input type="password" class="form-control" id="pass-confirm" name="pass-confirm"placeholder="Masukkan konfirmasi password...">
-						<label for="pass-confirm">Konfirmasi Password <span class="text-danger">*</span></label>
+						<input type="password" class="form-control" id="password-confirmation" name="password_confirmation"placeholder="Masukkan konfirmasi password...">
+						<label for="password-confirmation">Konfirmasi Password <span class="text-danger">*</span></label>
 					</div>
 				</form>
 			</div>

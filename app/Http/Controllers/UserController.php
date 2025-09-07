@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('the_she.admin_page.customer.index',[
+        return view('apps.admin_page.customer.index',[
             "users" => User::all()->where('level', 'pelanggan'),
         ]);
     }

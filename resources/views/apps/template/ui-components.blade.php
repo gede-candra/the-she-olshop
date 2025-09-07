@@ -11,8 +11,6 @@
 {{-- Font Awesome --}}
 <link rel="stylesheet" href="{{ asset('tools/fontawesome-free-6.1.1-web/css/all.min.css') }}">
 
-{{-- CSS --}}
-
 {{-- bootstrap --}}
 <link rel="stylesheet" href="{{ asset('tools/bootstrap-5.2.0/css/bootstrap.min.css') }}">
 {{-- owl carousel --}}
@@ -21,7 +19,36 @@
 {{-- mycss --}}
 <link rel="stylesheet" href="{{ asset('css/customer.css') }}">
 
+@if (auth()->check())
+{{-- datatable --}}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+
+{{-- mycss --}}
+<link rel="stylesheet" href="{{ asset('css/template.css') }}">
+@endif
+
+{{-- CSS --}}
+<style>
+  .avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .dropdown-item:focus,
+  .dropdown-item.active {
+    background-color: var(--bs-success) !important;
+    color: #fff !important;
+  }
+</style>
+
 @yield('css')
+
 
 {{-- JAVASCRIPT --}}
 
@@ -29,8 +56,17 @@
 <script src="{{ asset('tools/bootstrap-5.2.0/js/bootstrap.bundle.min.js') }}"></script>
 {{-- jquery --}}
 <script src="{{ asset('tools/jquery-3.6.0/jquery.min.js') }}"></script>
-{{-- my js --}}
+{{-- datatable --}}
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js">
+</script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js">
+</script>
+<script src="/js/config_datatables.js"></script>
+{{-- helper --}}
+<script src="{{ asset('js/ajax-helper.js') }}"></script>
 <script src="{{ asset('js/utilities.js') }}"></script>
+{{-- my js --}}
 <script src="{{ asset('js/apps/auth.js') }}"></script>
+<script src="{{ asset('js/apps/show-random-product-categories.js') }}"></script>
 
-@yield('jsScript')
+@yield('js-asset')

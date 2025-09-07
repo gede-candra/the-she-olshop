@@ -1,4 +1,4 @@
-@extends('the_she.admin_page.layouts.main-admin')
+@extends('apps.layouts.main')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/img-modal.css') }}">
@@ -19,7 +19,7 @@
         {{-- Alert end --}}
     @endif
     <div class="d-flex justify-content-end mb-3">
-        <a href="{{ route("admin.produk.create") }}" class="btn btn-outline-success"><i class="fa-solid fa-plus"></i> Tambah Data</a>
+        <a href="{{ route("produk.create") }}" class="btn btn-outline-success"><i class="fa-solid fa-plus"></i> Tambah Data</a>
     </div>
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h3 class="w-100">Data Produk</h3>
@@ -51,16 +51,16 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td class="text-center"><img class="img-card h-card" src="{{ asset('storage/'.$item->picture) }}" height="60px" alt="{{ $item->product_name }}"></td>
-                        <td>{{ $item->product_name }}</td>
+                        <td>{{ $item->name }}</td>
                         <td class="text-nowrap {{ isset($item->productCategory->name) ? '' : 'text-danger' }}">{{ $item->productCategory->name  }}</td>
                         <td>{{ $item->description }}</td>
                         <td class="text-nowrap">Rp. {{ number_format($item->price, 0, ',', '.') }}</td>
                         <td class="text-nowrap">{{ $item->stock }}</td>
                         <td>
                             <div class="d-flex gap-2">
-                                <a href="{{ route("admin.produk.edit", $item->slug) }}" class="btn btn-outline-warning"><i
+                                <a href="{{ route("produk.edit", $item->slug) }}" class="btn btn-outline-warning"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
-                                <form action="{{ route("admin.produk.destroy", $item->slug) }}" method="POST">
+                                <form action="{{ route("produk.destroy", $item->slug) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-outline-danger" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa-solid fa-trash-can"></i></button>
@@ -74,9 +74,9 @@
     </div>
 
     {{-- Image Modal --}}
-    @include('the_she.template.image-modal')
+    @include('apps.template.image-modal')
 
 @endsection
-@section('jsScript')
+@section('js-asset')
     <script src="{{ asset('js/img-modal.js') }}"></script>
 @endsection

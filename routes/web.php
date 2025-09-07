@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
 
     // Customer
     Route::resource('/pelanggan', UserController::class);
+
+    // Logout
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 // Guest
@@ -45,8 +48,10 @@ Route::middleware('guest')->group(function () {
 // Homepage
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 // Recommendation
-Route::get('/rekomendasi-lainnya', [HomepageController::class, 'showRecommendations'])->name('product-by-category');
-// Show Product Category
+Route::get('/rekomendasi-lainnya', [HomepageController::class, 'showRecommendations'])->name('more-recommendations');
+// Show all product category
+Route::get('/kategori-produk-random', [HomepageController::class, 'showRandomProductCategories'])->name('show-random-product-category');
+// Show Product by Category
 Route::get('/{slug}', [HomepageController::class, 'showProductsByCategory'])->name('product-by-category');
 // Product Detail
 Route::get('/{categorySlug}/{slug}', [HomepageController::class, 'showProductDetail'])->name('product-detail');

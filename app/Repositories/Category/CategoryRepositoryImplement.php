@@ -18,11 +18,11 @@ class CategoryRepositoryImplement implements CategoryRepository
    }
    
    /**
-    * Get All Category Products
+    * Get Random Category Products
     */
-   public function getAllCategory()
+   public function getRandomProductCategories()
    {
-      return $this->categoryModel->all();
+      return $this->categoryModel->inRandomOrder()->limit(5)->get();
    }
    
    /**

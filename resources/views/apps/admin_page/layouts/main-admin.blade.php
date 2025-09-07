@@ -30,13 +30,13 @@
    <script src="/js/config_datatables.js"></script>
    <script src="{{ asset('js/utilities.js') }}"></script>
    {{-- <script src="/js/alert.js"></script> --}}
-   @yield('jsScript')
+   @yield('js-asset')
 </head>
 <body style="overflow-y: {{ ( session()->has('success')) ? 'hidden' : 'auto' }};">
    {{-- Navigation Bar Admin --}}
    <nav class="navbar navbar-expand-lg py-0 navbar-light bg-light fixed-top" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2)">
       <div class="container ">
-         <a class="navbar-brand fs-3 text-success d-flex align-items-center gap-2" href="/Admin"  style="font-family: 'Bungee Shade';"><img src="/img/logo_framework.png" width="40" alt="">TSO <sup class="fs-6 fw-bold text-secondary opacity-75" style="font-family: 'calibri';">Admin</sup></a>
+         <a class="navbar-brand fs-3 text-success d-flex align-items-center gap-2" href="{{ route('homepage') }}"  style="font-family: 'Bungee Shade';"><img src="/img/logo_framework.png" width="40" alt="">TSO <sup class="fs-6 fw-bold text-secondary opacity-75" style="font-family: 'calibri';">Admin</sup></a>
          <div class="order-lg-2 d-flex align-items-center gap-3">
          <div class="btn-group">
             <button type="button" class="btn btn-outline-success btn-sm rounded-pill dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,16 +56,16 @@
             <ul class="navbar-nav my-2 my-lg-0">
                <div class="navbar-nav me-lg-2">
                   <li class="nav-item px-lg-2">
-                     <a class="nav-link text-success opacity-75 px-2 py-lg-3 fw-bold px-lg-0 {{ request()->is('admin/dashboard*') ? 'aktif' : '' }}" href="{{ route("admin.dashboard") }}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+                     <a class="nav-link text-success opacity-75 px-2 py-lg-3 fw-bold px-lg-0 {{ request()->is('admin/dashboard*') ? 'aktif' : '' }}" href="{{ route("dashboard") }}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
                   </li>
                   <li class="nav-item px-lg-2">
-                     <a class="nav-link text-success opacity-75 px-2 py-lg-3 fw-bold px-lg-0 {{ request()->is('admin/pelanggan*') ? 'aktif' : '' }}" href="{{ route("admin.pelanggan.index") }}"><i class="fa-solid fa-users"></i> Pelanggan</a>
+                     <a class="nav-link text-success opacity-75 px-2 py-lg-3 fw-bold px-lg-0 {{ request()->is('admin/pelanggan*') ? 'aktif' : '' }}" href="{{ route("pelanggan.index") }}"><i class="fa-solid fa-users"></i> Pelanggan</a>
                   </li>
                   <li class="nav-item px-lg-2">
-                     <a class="nav-link text-success opacity-75 px-2 py-lg-3 fw-bold px-lg-0 {{ request()->is('admin/produk*') ? 'aktif' : '' }}" href="/admin/produk"><i class="fa-solid fa-box-open"></i> Produk</a>
+                     <a class="nav-link text-success opacity-75 px-2 py-lg-3 fw-bold px-lg-0 {{ request()->is('admin/produk*') ? 'aktif' : '' }}" href="{{ route("produk.index") }}"><i class="fa-solid fa-box-open"></i> Produk</a>
                   </li>
                   <li class="nav-item px-lg-2">
-                     <a class="nav-link text-success opacity-75 px-2 py-lg-3 fw-bold px-lg-0 {{ request()->is('admin/pesanan*') ? 'aktif' : '' }}" href="/admin/pesanan"><i class="fa-solid fa-arrows-down-to-line"></i> Pesanan</a> 
+                     <a class="nav-link text-success opacity-75 px-2 py-lg-3 fw-bold px-lg-0 {{ request()->is('admin/pesanan*') ? 'aktif' : '' }}" href="{{ route("pesanan.index") }}"><i class="fa-solid fa-arrows-down-to-line"></i> Pesanan</a> 
                   </li>
                </div>
             </ul>
@@ -80,7 +80,7 @@
 
    <hr>
    {{-- Footer --}}
-   @include('the_she.admin_page.layouts.footer')
+   @include('apps.layouts.footer')
 
 </body>
 </html>

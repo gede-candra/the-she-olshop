@@ -137,6 +137,6 @@
 
 @endsection
 
-@section('jsScript')
+@section('js-asset')
 	<script src="{{ asset('js/img-modal.js') }}"></script>
 @endsection

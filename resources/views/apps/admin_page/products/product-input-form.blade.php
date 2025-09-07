@@ -1,11 +1,11 @@
-@extends('the_she.admin_page.layouts.main-admin')
+@extends('apps.layouts.main')
 
 @section('content') 
 <div class="row">
    <div class="shadow p-4 col-lg-6 m-auto">
       <h3 class="text-center">{{ $title }}</h3>
       <br>
-      <form action="{{ $title == "Ubah Data Produk" ? route("admin.produk.update", $product->slug) : route("admin.produk.store") }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ $title == "Ubah Data Produk" ? route("produk.update", $product->slug) : route("produk.store") }}" method="POST" enctype="multipart/form-data">
          @csrf
          @if ($title == "Ubah Data Produk")
                @method("PUT")
@@ -25,7 +25,7 @@
             <label for="product_category" class="form-label">Kategori Produk</label>
             <select id="product_category" class="form-select @error('category_id') is-invalid @enderror" name="category_id">
               <option selected disabled>- - - Pilih Kategori Produk - - -</option>
-              @foreach ($productCa as $category)
+              @foreach ($categories as $category)
               @if (old('category_id', @$product->productCategory->name) == $category->title)
                   <option selected value="{{ $category->id }}">{{ $category->title }}</option>
               @else
@@ -85,7 +85,7 @@
             @enderror
           </div>
          <div class="d-flex justify-content-between">
-            <a href="/Admin/produk"class="btn btn-outline-warning">Kembali</a>
+            <a href="{{ route('produk.index') }}"class="btn btn-outline-warning">Kembali</a>
             <button type="submit" class="btn btn-primary px-3">{{ $btn_text }}</button>
          </div>
       </form>

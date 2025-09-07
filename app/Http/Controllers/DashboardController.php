@@ -39,6 +39,6 @@ class DashboardController extends Controller
             "orders"    => $this->orderService->getAllOrder(),
         ];
 
-        return view('the_she.admin_page.dashboard', $data);
+        return view('apps.admin_page.dashboard', $data);
     }
 }

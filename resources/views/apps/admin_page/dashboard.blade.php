@@ -1,4 +1,4 @@
-@extends('the_she.admin_page.layouts.main-admin')
+@extends('apps.layouts.main')
 
 @section('content')
    <h3 class="">Dashboard</h3>

@@ -35,7 +35,7 @@ class OrderController extends Controller
             "products" => $this->productService->getAllProduct(),
         ];
 
-        return view("the_she.admin_page.order.index", $data);
+        return view("apps.admin_page.order.index", $data);
     }
 
     /**
