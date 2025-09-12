@@ -7,7 +7,7 @@ use App\Repositories\User\UserRepository;
 class UserServiceImplement implements UserService
 {
    private $userRepository;
-   
+
    /**
     * __construct
     *
@@ -18,7 +18,7 @@ class UserServiceImplement implements UserService
    {
       $this->userRepository = $userRepository;
    }
-   
+
    /**
     * Get all user by where condition
     *
@@ -30,5 +30,14 @@ class UserServiceImplement implements UserService
    {
       return $this->userRepository->getAllUserWhere($where, $value);
    }
+
+   /**
+    * Get customer count
+    *
+    * @return int
+    */
+   public function getUserCount()
+   {
+      return $this->userRepository->getCustomerCount();
+   }
 }
-?>

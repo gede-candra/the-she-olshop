@@ -49,7 +49,7 @@
             @foreach ($item->users as $data)
             <tr>
                 <th scope="row">{{ $no++ }}</th>
-                <td class="text-nowrap">{{ $data->pivot->order_code }}</td> 
+                <td class="text-nowrap">{{ $data->pivot->id }}</td> 
                 <td class="text-nowrap">{{ $data->name}}</td>
                 <td class="text-nowrap">{{ $item->product_name }}</td>
                 <td class="text-nowrap">{{ $data->pivot->created_at }}</td>

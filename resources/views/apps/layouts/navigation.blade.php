@@ -37,10 +37,12 @@ $avatarBg = $palette[$idx];
       <a class="navbar-brand fs-3 text-success d-flex mt-lg-2" href="/" style="font-family: 'Bungee Shade';"><img
             src="/img/logo_framework.png" width="40" alt="">TSO</a>
       <div class="d-flex gap-2">
+         @if (!auth()->check() || (auth()->check() && $u->role_id !== 1))
          <div class="d-flex d-lg-none">
             <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#CartModal"><i
                   class="fa-solid fa-cart-shopping"></i></button>
          </div>
+         @endif
          <div class="d-flex d-lg-none">
             @if (!auth()->check())
             <button type="button" class="btn-auth-modal btn btn-outline-success text-nowrap" data-bs-toggle="modal"
@@ -71,10 +73,12 @@ $avatarBg = $palette[$idx];
                </form>
             </div>
             <ul class="navbar-nav d-none d-lg-flex gap-2">
+               @if (!auth()->check() || (auth()->check() && $u->role_id !== 1))
                <li class="nav-item">
                   <button class="btn btn-outline-success text-nowrap" data-bs-toggle="modal"
                      data-bs-target="#CartModal"><i class="fa-solid fa-cart-shopping"></i> Keranjang</button>
                </li>
+               @endif
                @if (!auth()->check())
                <li class="nav-item">
                   <button type="button" class="btn-auth-modal btn btn-outline-success text-nowrap"
@@ -134,6 +138,7 @@ $avatarBg = $palette[$idx];
                         <hr class="dropdown-divider">
                      </li>
 
+                     @if ($u->role_id === 1)
                      <!-- Grup: Master -->
                      <li>
                         <h6 class="dropdown-header text-success">Master</h6>
@@ -154,6 +159,7 @@ $avatarBg = $palette[$idx];
                      <li>
                         <hr class="dropdown-divider">
                      </li>
+                     @endif
 
                      <!-- Grup: Transaksi -->
                      <li>
@@ -162,7 +168,7 @@ $avatarBg = $palette[$idx];
                      <li>
                         <a class="dropdown-item {{ request()->routeIs('pesanan.*') ? 'active' : '' }}"
                            href="{{ route('pesanan.index') }}">
-                           <i class="fa-solid fa-arrows-down-to-line fa-fw me-2"></i> Pesanan
+                           <i class="fa-solid fa-arrows-down-to-line fa-fw me-2"></i> Riwayat Pesanan
                         </a>
                      </li>
 

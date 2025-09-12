@@ -43,4 +43,10 @@ interface UserRepository
     * @return object
     */
    public function findByUsernameOrEmail($usernameOrEmail);
+
+   /**
+    * Get customer count
+    * @return int
+    */
+   public function getCustomerCount();
 }

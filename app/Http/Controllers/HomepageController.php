@@ -57,7 +57,7 @@ class HomepageController extends Controller
         return view('apps.products-by-category', $data);
     }
 
-    public function showProductDetail($slug)
+    public function showProductDetail($categoryProduct, $slug)
     {
         $data = [
             "product" => $this->productService->getProductBySlug($slug),

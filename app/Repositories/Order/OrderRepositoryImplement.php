@@ -63,6 +63,19 @@ class OrderRepositoryImplement implements OrderRepository
    {
       return $this->orderRepository->where($column, $value)->first();
    }
+
+   /**
+    * Get order count
+    *
+    * @param  mixed $data
+    * @return void
+    */
+   public function create()
+   {
+      return $this->orderModel;
+   }
+
+
 }
 
 ?>

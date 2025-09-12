@@ -49,6 +49,7 @@ $u = auth()->user();
 
             <div class="border-bottom border-2"></div>
 
+            @if ($u->role_id === 1)
             <!-- Grup: Master -->
             <li class="nav-item">
                <h6 class="dropdown-header text-secondary">Master</h6>
@@ -67,6 +68,7 @@ $u = auth()->user();
             </li>
 
             <div class="border-bottom border-2"></div>
+            @endif
 
             <!-- Grup: Transaksi -->
             <li class="nav-item">
@@ -75,7 +77,7 @@ $u = auth()->user();
             <li class="nav-item">
                <a class="text-decoration-none text-nowrap btn btn-outline-success btn-sm border-0 d-flex align-items-center gap-2 {{ request()->routeIs('pesanan.*') ? 'active' : '' }}"
                   href="{{ route('pesanan.index') }}">
-                  <i class="fa-solid fa-arrows-down-to-line fa-fw me-2"></i> Pesanan
+                  <i class="fa-solid fa-arrows-down-to-line fa-fw me-2"></i> Riwayat Pesanan
                </a>
             </li>
 

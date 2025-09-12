@@ -74,4 +74,13 @@ class UserRepositoryImplement implements UserRepository
          ->orWhere('email', $usernameOrEmail)
          ->first();
    }
+
+   /**
+    * Get customer count
+    * @return int
+    */
+   public function getCustomerCount()
+   {
+      return $this->userModel->where('role_id', 2)->count();
+   }
 }

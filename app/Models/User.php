@@ -18,22 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $guarded = ['id'];
-    
-    /**
-     * Many to maany relation with Products
-     *
-     * @return void
-     */
-    public function products(){
-        return $this->belongsToMany(User::class, 'orders', 'product_id', 'user_id')->withTimestamps()->withPivot(['order_code','status']);
-    }
+
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [ 
+    protected $hidden = [
         'password',
         'remember_token',
     ];
@@ -46,4 +38,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Many to maany relation with Products
+     *
+     * @return void
+     */
+    public function products()
+    {
+        return $this->belongsToMany(User::class, 'orders', 'product_id', 'user_id')->withTimestamps()->withPivot(['id', 'status']);
+    }
+
+
+    /**
+     * Check if user is admin
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->role_id === 1;
+    }
 }

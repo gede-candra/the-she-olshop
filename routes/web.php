@@ -25,13 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Product
-    Route::resource('/produk', ProductController::class);
+    Route::resource('/produk', ProductController::class)->middleware('admin');
 
     // Order
     Route::resource('/pesanan', OrderController::class);
 
     // Customer
-    Route::resource('/pelanggan', UserController::class);
+    Route::resource('/pelanggan', UserController::class)->middleware('admin');
 
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

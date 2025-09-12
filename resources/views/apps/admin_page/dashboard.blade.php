@@ -3,13 +3,14 @@
 @section('content')
    <h3 class="">Dashboard</h3>
    <hr>
-   <div class="row p-2 gap-4 justify-content-around">
+   <div class="row p-2 gap-4">
+      @if (auth()->user()->role_id === 1)
       <div class="col-md-3 col-12 shadow p-4 border-start border-primary border-4 text-primary">
          <div class="row">
          <div class="col-6">
             <h3><i class="fa-solid fa-users"></i></h3>
          </div>
-         <div class="col-6"><h3 class="text-end">{{ $users->count() }}</h3></div>
+         <div class="col-6"><h3 class="text-end">{{ $userCount }}</h3></div>
          <div class="col-7"><p class="m-0 mt-3"><b>Data Pelanggan</b></p></div>
          </div>
       </div>
@@ -18,23 +19,24 @@
          <div class="col-6">
             <h3><i class="fa-solid fa-box-open"></i></h3>
          </div>
-         <div class="col-6"><h3 class="text-end">{{ $products->count() }}</h3></div>
+         <div class="col-6"><h3 class="text-end">{{ $productCount }}</h3></div>
          <div class="col-7"><p class="m-0 mt-3"><b>Data Produk</b></p></div>
          </div>
       </div>
-      <div class="col-md-3 col-12 shadow p-4 border-start border-warning border-4 text-warning">
+      @endif
+      {{-- <div class="col-md-3 col-12 shadow p-4 border-start border-warning border-4 text-warning">
          <div class="row">
          <div class="col-6">
             <h3><i class="fa-solid fa-arrows-down-to-line"></i></h3>
          </div>
          <div class="col-6">
-            <h3 class="text-end">{{ $orders->count() }}</h3>
+            <h3 class="text-end">{{ $orderCount }}</h3>
          </div>
          <div class="col-7">
             <p class="m-0 mt-3"><b>Data Pesanan</b></p>
          </div>
          </div>
-      </div>
+      </div> --}}
    </div>
    <div class="table-responsive mt-5">
       <table class="table table-striped caption-top table-borderless" id="example">
